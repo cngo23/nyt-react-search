@@ -2,4 +2,18 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background: url("http://media.pennlive.com/opinion/photo/newspaper-background-art-c97d525e62886f4f.jpg");
+  background-size: cover;
+  position: relative;
+  background-repeat:no-repeat;
+  background-color: grey;
+  background-blend-mode: multiply;
 }
+
+.navbar-nav {
+  flex-direction: row;
+}
+
+
+
+

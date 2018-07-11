@@ -1,20 +1,27 @@
 import axios from "axios";
 
-const URL = "https://api.nytimes.com/svc/search/v2/articlesearch.json"
-const KEY = "a34aa992f2a7440695c1ba8eda249516";
-
 export default {
-  // Gets search
-  getData: function(search) {
-    return axios.get(`${URL}?q=${search}&api-key=${KEY}`);
-  },
-  getArticles: function() {
-    return axios.get("/api/articles");
-  },
-  saveArticles: function(Article) {
-    return axios.post("/api/articles", Article);
-  },
-  deleteArticle: function(id) {
-    return axios.delete("/api/articles/" + id);
-  }
+    
+    searchNYTArticles: function(query, startYear, endYear) {
+        const queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=";
+        //0101 refers to the month and day. NYT API date parameter is in the form YYYYMMDD
+        const apiKEY = "a34aa992f2a7440695c1ba8eda249516";
+        return axios.get(queryURL+`${apiKEY}&q=${query}&begin_date=${startYear}0101&end_date=${endYear}0101`);
+    },
+    // Gets all articles
+    getSavedArticles: function(){
+        return axios.get("/api/articles");
+    },
+    // Gets article with given id
+    getArticle: function(id) {
+        return axios.get("/api/articles/" + id);
+    },
+    // Deletes the article with the given id
+    deleteArticle: function(id) {
+        return axios.delete("/api/articles/" + id);
+    },
+    saveArticle: function(articleData) {
+        return axios.post("/api/articles", articleData);
+    }
 };
+

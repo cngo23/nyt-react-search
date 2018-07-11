@@ -1,11 +1,19 @@
-import React from "react";
+import React from 'react';
+import { Link } from "react-router-dom";
+import "./Nav.css";
 
-const Nav = () => (
-  <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-    <a className="navbar-brand" href="/">
-      CNgo
-    </a>
-  </nav>
-);
+const Nav = () =>
+
+<nav className="navbar navbar-dark bg-secondary">
+    <Link className="navbar-brand" to="/">CNgo</Link>
+    <ul className="navbar-nav">
+        <li className="nav-item">
+            <Link to="/"><button type="button" className="btn btn-info">Home</button></Link>
+        </li>
+        <li className="nav-item">
+            <Link to="/savedArticles"><button type="button" className="btn btn-info">Saved Articles</button></Link>
+        </li>
+    </ul>
+</nav>;
 
 export default Nav;
